@@ -1,4 +1,4 @@
-:root{
+ :root{
     --brown: rgb(110, 36, 14);
 }
 
@@ -45,16 +45,13 @@ section{
     margin-top: 1rem;
     cursor: pointer;
 }
-/* .btn:hover{
-    background: var(--pink);
-} */
 
-header{
+ header{
     position: fixed;
     z-index: 1000;
     top: 0; left: 0; right: 0;
     height: 6rem;
-    background: linear-gradient(to right, rgba(247, 210, 229, 0.892), rgb(255, 255, 255), rgb(247, 222, 235)), url(/partynest/public/image/home-bg.jpg) no-repeat;
+    /* background: linear-gradient(to right, rgba(247, 210, 229, 0.892), rgb(255, 255, 255), rgb(247, 222, 235)), url(/partynest/public/image/home-bg.jpg) no-repeat; */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -91,19 +88,20 @@ header .icons a{
 
 header .icons a:hover{
     color: var(--pink);
-}
+} 
 
 /* header #toggler{
     display: none;
 } */
-header .fa-bars{
+ header .fa-bars{
     font-size: 3rem;
     color:#333;
     border-radius: .5rem;
     padding: .5rem 1.5rem;
     cursor: pointer;
     display: none;
-}
+} 
+    
 .home{
     display: flex;
     align-items: center;
@@ -435,6 +433,7 @@ header .fa-bars{
 
 
 
+
 /* media queries */
 @media (max-width: 991px){
     html{
@@ -538,7 +537,7 @@ header .fa-bars{
       main {
         padding-bottom: 70px; /* space for bottom nav */
       }
-      
+
       .mobile-bottom-nav {
         position: fixed;
         bottom: 0;
@@ -623,4 +622,4 @@ header .fa-bars{
         color: white;
         font-size: 0.7rem;
       }
-}
+} 

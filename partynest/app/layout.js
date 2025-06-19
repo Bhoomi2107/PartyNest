@@ -1,7 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "../app/globals.css";
 import { Toaster } from 'react-hot-toast';
-import BottomNav from '@/components/bottomnav/BottomNav';
 import '@/components/bottomnav/BottomNav.css';
 
 
@@ -29,9 +28,6 @@ export default function RootLayout({ children }) {
         <main>
           {children}
         </main>
-
-        {/* Bottom Mobile Navigation */}
-        <BottomNav />
       </body>
     </html>
   );

@@ -1,43 +1,99 @@
 .home-container {
-    padding: 1.5rem;
-    padding-bottom: 100px; /* To prevent nav overlap */
-    font-family: sans-serif;
-    text-align: center;
-    background: #f7f9fb;
-    min-height: 100vh;
-  }
-  
-  h1 {
-    font-size: 1.8rem;
-    color: #0a2240;
-  }
-  
-  p {
-    margin-top: 0.5rem;
-    color: #444;
-  }
-  
-  .highlight {
-    margin-top: 2rem;
-  }
-  
-  .cards {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 1rem;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  
-  .card {
-    background: #fff;
-    padding: 1rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    flex: 1;
-    min-width: 100px;
-    max-width: 150px;
-    font-weight: bold;
-    color: #0a2240;
-  }
-  
+  padding: 0;
+  padding-bottom: 100px;
+  font-family: sans-serif;
+  background:rgb(255, 255, 255);
+  min-height: 100vh;
+}
+
+/* Header */
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: rgba(107, 206, 246, 0.62);
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+/* Search */
+.search-wrapper {
+  position: relative;
+  flex: 1;
+}
+
+.search-bar {
+  width: 100%;
+  height: 40px;
+  padding: 1.7rem 1rem 0.7rem 2.5rem;
+  font-size: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: #888;
+  pointer-events: none;
+}
+
+/* Icons (wishlist and cart) */
+.header-icons {
+  display: flex;
+  gap: 1rem;
+  margin-left: 1rem;
+}
+
+.header-icons .icon {
+  font-size: 1.9rem;
+  color: white;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.header-icons .icon:hover {
+  color:rgb(255, 34, 0);
+}
+.cart-icon .icon:hover {
+  color: black;
+}
+
+/* Location bar (conditionally visible) */
+.location-bar {
+  display: flex;
+  align-items: center;
+  background: #f1f1f1;
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.location-icon {
+  font-size: 1.5rem;
+  color:rgb(0, 0, 0);
+  margin-right: 0.8rem;
+}
+
+.location-text {
+  text-align: left;
+}
+
+.delivered-label {
+  font-size: 0.8rem;
+  color: #666;
+  display: flex;
+}
+
+.user-info {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}

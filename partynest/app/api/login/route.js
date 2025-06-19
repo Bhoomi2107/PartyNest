@@ -37,6 +37,10 @@ export async function POST(req) {
        });
     }
 
+    if (!user.isVerified) {
+      return new Response("Please verify your email first", { status: 401 });
+    }
+
     // Generate JWT token
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
       expiresIn: '1h',

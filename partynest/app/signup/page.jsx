@@ -41,7 +41,7 @@ const Signup = () => {
 
       if (res.ok) {
         toast.success("Signup successful!");
-        router.push("/login");
+        router.push("/home");
       } else {
         toast.error(data.error || "Signup failed");
       }
