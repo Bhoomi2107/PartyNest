@@ -1,0 +1,119 @@
+.login-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  font-family: sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Left Side: Form Section */
+.form-section {
+  flex: 1;
+  background: rgb(250, 246, 243);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.form-section h2 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  margin-top: -150px;
+  color: #000;
+}
+
+.form-section form {
+  width: 80%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-section input {
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 3rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1.5rem;
+}
+
+.form-section button {
+  padding: 1.2rem 1rem;
+  background-color: rgb(104, 50, 5);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 2rem;
+  transition: background 0.3s;
+}
+
+.form-section button:hover {
+  background: #333;
+}
+
+.form-section p {
+  font-size: 1.6rem;
+}
+
+.signup-text {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.signup-text a {
+  color: rgb(104, 50, 5);
+  text-decoration: underline;
+}
+
+/* Right Side: Image Section */
+.image-section {
+  flex: 1;
+  height: 100%;
+}
+
+.image-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.form-message {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.form-message.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.form-message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #333;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
