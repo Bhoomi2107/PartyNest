@@ -5,7 +5,6 @@ import '@/components/BottomNav/BottomNav.css';
 export default function BottomNav() {
   return (
     <nav className="bottom-nav">
-      <div className="circle"><div className="inner-circle"><Link href="/profile" className="nav-item"><FaUser /><span className="label">Profile</span></Link></div></div>
       <div className="circle"><div className="inner-circle"><Link href="/orders" className="nav-item"><FaBoxOpen /><span className="label">My orders</span></Link></div></div>
       <div className="circle"><div className="inner-circle"><Link href="/home" className="nav-item"><FaHome /><span className="label">Home</span></Link></div></div>
       <div className="circle"><div className="inner-circle"><Link href="/cart" className="nav-item"><FaShoppingCart /><span className="label">Cart</span></Link></div></div>

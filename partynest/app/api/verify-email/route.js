@@ -15,13 +15,15 @@ export async function GET(req) {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     const user = await User.findOne({ email: decoded.email });
 
-    if (!user) return new Response("User not found", { status: 404 });
-
+    if (!user) {
+      return Response.redirect(`${process.env.NEXT_PUBLIC_BASE_URL}/verify-failed`);
+    }
+    
     user.isVerified = true;
     await user.save();
 
-    return new Response("Email verified successfully!");
+    return Response.redirect(`${process.env.NEXT_PUBLIC_BASE_URL}/verify-success`, 302);
   } catch (err) {
-    return new Response("Token expired or invalid", { status: 400 });
+    return Response.redirect(`${process.env.NEXT_PUBLIC_BASE_URL}/verify-failed`, 302);
   }
 }

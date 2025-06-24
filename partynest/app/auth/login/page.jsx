@@ -11,6 +11,7 @@ export default function LoginPage() {
   const [formData, setFormData] = useState({ name: "", email: "", password: "" });
   const [loading, setLoading] = useState(false);
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -19,49 +20,43 @@ export default function LoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-
+    setError("");
+  
+    const { name, email } = formData;
+  
     try {
       const res = await fetch("/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ name, email, password }),
       });
-
-      const data = await res.json();
-
-      if (password.length < 8) {
-        setMessage('Password must be at least 8 characters long');
+  
+      if (res.status === 403) {
+        const data = await res.json();
+        setError(data.error); // "Please verify your email first"
+        toast.error(data.error);
+        setLoading(false);
         return;
       }
-
-      if (res.ok) {
-        toast.success("Login successful! Redirecting...");
-        router.push("/dashboard");
-      } else {
+  
+      const data = await res.json();
+  
+      if (!res.ok) {
+        setError(data.error || "Login failed");
         toast.error(data.error || "Login failed");
+        setLoading(false);
+        return;
       }
-      } catch (error) {
-        toast.error("Something went wrong");
-      } finally {
-        setLoading(false); // Stop spinner
-      }
-    };
-
-    //   if (!res.ok) {
-    //     toast.error(data.error || "Login failed");
-    //     return;
-    //   }
-
-    //   localStorage.setItem("token", data.token);
-    //   toast.success("Login successful! Redirecting...");
-    //   router.push("/dashboard");
-    // } catch (err) {
-    //   console.error(err);
-    //   toast.error("Network error. Please try again.");
-    // } finally {
-    //   setLoading(false);
-    // }
-    // };
+  
+      toast.success("Login successful! Redirecting...");
+      router.push("/dashboard");
+    } catch (error) {
+      console.error("Login error:", error);
+      toast.error("Something went wrong");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="login-container">
@@ -108,22 +103,15 @@ export default function LoginPage() {
             />
             <div><small className="password-hint">*Minimum 8 characters</small></div>
           </div>
-          {/* <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          /> */}
           
+          {error && <p className="error-message">{error}</p>}
           <button type="submit" disabled={loading}>
-            {loading ? "Loading..." : "Login"}
+            {loading ? "Logging in..." : "Login"}
           </button>
         </form>
 
         <p className="signup-text">
-          New to PartyNest? <Link href="/signup">Create an account</Link>
+          New to PartyNest? <Link href="/auth/signup">Create an account</Link>
         </p>
       </div>
     </div>

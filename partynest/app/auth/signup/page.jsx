@@ -59,7 +59,7 @@ const Signup = () => {
   return (
     <div className="login-container">
       <div className="image-section">
-        <img src="/disco-login.png" alt="Party Lights" />
+        <img src="/image/disco-login.png" alt="Party Lights" />
       </div>
       <div className="form-section">
         <h2>Create Your PartyNest Account</h2>
@@ -107,7 +107,7 @@ const Signup = () => {
           )}
         </form>
         <p className="signup-text">
-          Already have an account? <Link href="/login">Login</Link>
+          Already have an account? <Link href="/auth/login">Login</Link>
         </p>
       </div>
     </div>

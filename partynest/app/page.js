@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
-import "./landingpage.css";
+import Link from "next/link";
+import "../styles/landingpage.css";
 
 export default function landingpagePage() {
 
@@ -11,8 +12,8 @@ export default function landingpagePage() {
         <input type="checkbox" id="menu-toggle" className="menu-toggle" />
         <label htmlFor="menu-toggle" className="hamburger">☰</label>
         <nav className="nav">
-          <a href="/login">Login</a>
-          <a href="/signup">Signup</a>
+          <Link href="/auth/login">Login</Link>
+          <Link href="/auth/signup">Signup</Link>
         </nav>
       </header>
 
@@ -30,7 +31,7 @@ export default function landingpagePage() {
           <div className="content">
             <h3 className="fade-in-text">Welcome to <span>PartyNest</span></h3>
             <p>Your one-stop shop for party props, decorations, and more!</p>
-            <a href="/home" className="btn fade-inbutton">Shop Now</a>
+            <a href="/pages/home" className="btn fade-inbutton">Shop Now</a>
           </div>
         </div>
       </section>

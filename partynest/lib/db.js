@@ -8,18 +8,16 @@ if (!MONGO_URI) {
 }
 
 export async function connectDB() {
-  if (mongoose.connections[0].readyState) {
-    return;
-  }
+  if (mongoose.connections[0].readyState) return;
 
   try {
-    await mongoose.connect(MONGO_URI, {
+    await mongoose.connect(process.env.MONGODB_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
     console.log('MongoDB Connected');
   } catch (error) {
     console.error('MongoDB Connection Error:', error);
-    throw error;
+    throw new Error('Failed to connect to MongoDB');
   }
 }
